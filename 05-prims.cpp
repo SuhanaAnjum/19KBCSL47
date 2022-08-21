@@ -15,13 +15,13 @@ class Prims {
         void primsAlgo();
 };
 
-Prims::Prims(){
+Prims::Prims() {
     for (int i = 0; i < ROW; i++)
         for (int j = 0; j < COL; j++)
             graph[i][j] = 0;
 }
 
-void Prims::createGraph(){
+void Prims::createGraph() {
     cout << "Enter total nodes: ";
     cin >> nodes;
 
@@ -36,7 +36,7 @@ void Prims::createGraph(){
                 graph[i][j] = INFI;
 }
 
-void Prims::primsAlgo(){
+void Prims::primsAlgo() {
     int selected[ROW], ne, edgeCost, totalCost = 0;
     int min, x, y;
 
@@ -45,6 +45,7 @@ void Prims::primsAlgo(){
 
     selected[0] = TRUE;
     ne = 0;
+    
     while(ne < nodes - 1){
         min = INFI;
         for (int i = 0; i < nodes; i++)
@@ -63,10 +64,11 @@ void Prims::primsAlgo(){
         cout << "\n" << x + 1 << "->" << y + 1 << " " << edgeCost;
         ne++;
     }
+
     cout << "\nCost of MST: " << totalCost << endl;
 }
 
-void main(){
+void main() {
     Prims MST;
     clrscr();
 
@@ -76,4 +78,3 @@ void main(){
 
     getch();
 }
-

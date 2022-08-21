@@ -6,7 +6,7 @@
 
 int costMat[NODE][NODE];
 
-void floyd(int costMat[NODE][NODE], int node){
+void floyd(int costMat[NODE][NODE], int node) {
     int cost[NODE][NODE];
     for (int i = 0; i < node; i++)
         for (int j = 0; j < node; j++)
@@ -26,7 +26,7 @@ void floyd(int costMat[NODE][NODE], int node){
     }
 }
 
-void main(){
+void main() {
     int node;
     clrscr();
     cout << "Enter number of vertices: ";
@@ -41,4 +41,3 @@ void main(){
 
     getch();
 }
-

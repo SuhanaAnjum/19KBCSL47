@@ -3,7 +3,7 @@
 
 int a[10][10], indegree[10], n;
 
-void find_indegree(){
+void find_indegree() {
     for (int i = 0; i < n; i++) {
         int sum = 0;
         for (int j = 0; j < n; j++)
@@ -12,7 +12,7 @@ void find_indegree(){
     }
 }
 
-void topology(){
+void topology() {
     int s[10], sTop = -1, u, t[10], tTop = 0;
     find_indegree();
 
@@ -23,13 +23,12 @@ void topology(){
     while(sTop != -1){
         u = s[sTop--];
         t[tTop++] = u;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             if(a[u][i] == 1){
                 indegree[i]--;
                 if(indegree[i] == 0)
                     s[++sTop] = i;
             }
-        }
     }
 
     printf("The topological sorting is:\n");
@@ -38,7 +37,7 @@ void topology(){
     printf("\n");
 }
 
-void main(){
+void main() {
     clrscr();
 
     printf("Enter number of vertices of DAG: ");
@@ -53,4 +52,3 @@ void main(){
 
     getch();
 }
-

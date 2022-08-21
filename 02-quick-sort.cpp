@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <time.h>
 
-int part(int a[], int low, int high){
+int part(int a[], int low, int high) {
     int i = low + 1, j = high, temp;
 
     while(i <= j){
@@ -21,7 +21,7 @@ int part(int a[], int low, int high){
     return j;
 }
 
-void quick(int a[], int low, int high){
+void quick(int a[], int low, int high) {
     if(low < high){
         int j = part(a, low, high);
         quick(a, low, j - 1);
@@ -29,7 +29,7 @@ void quick(int a[], int low, int high){
     }
 }
 
-int main(){
+int main() {
     int i, n, a[20];
     clock_t start, end;
     clrscr();
