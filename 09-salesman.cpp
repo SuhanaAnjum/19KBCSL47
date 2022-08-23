@@ -4,33 +4,36 @@
 int n, a[10][10], visited[10], cost = 0, start;
 
 int least(int c) {
+    // nc - next city 
     int nc = 999, min = 999;
 
     for (int i = 1; i <= n; i++)
-        if(a[c][i] != 0 && visited[i] == 0)
-            if(a[c][i] < min) {
+        // if city is not visited and cost to that city is non zero,
+        // non zero means there is a direct path to that city
+        if (a[c][i] != 0 && visited[i] == 0)
+            if (a[c][i] < min) {
                 min = a[c][i];
                 nc = i;
             }
 
-    if(min != 999) cost += min;
+    if (min != 999) cost += min;
     return nc;
 }
 
 void mincost(int city) {
     visited[city] = 1;
-    
     printf("%d\t", city);
-    int ncity = least(city);
 
-    if(ncity == 999) {
-        ncity = start;
-        printf("%d\t", ncity);
-        cost += a[city][ncity];
+    int nextCity = least(city);
+
+    if (nextCity == 999) {
+        nextCity = start;
+        printf("%d\t", nextCity);
+        cost += a[city][nextCity];
         return;
     }
 
-    mincost(ncity);
+    mincost(nextCity);
     return;
 }
 
@@ -44,6 +47,7 @@ int main() {
         for (int j = 1; j <= n; j++)
             scanf("%d", &a[i][j]);
 
+    // initially none is visited
     for (int i = 1; i <= n; i++)
         visited[i] = 0;
 
