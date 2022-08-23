@@ -63,5 +63,5 @@ Q       *       *       *
 *       Q       *       *
 
 NOTE: loop counters have to specifically start with 1 otherwise
-the output is just not right, 
+the output is just not right, also note the loop conditions.
 */
