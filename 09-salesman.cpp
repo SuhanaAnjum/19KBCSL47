@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <conio.h>
 
-int a[10][10], visited[10], n, cost = 0, start;
+int n, a[10][10], visited[10], cost = 0, start;
 
 int least(int c) {
-    int nc = 999;
-    int min = 999;
+    int nc = 999, min = 999;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
         if(a[c][i] != 0 && visited[i] == 0)
             if(a[c][i] < min) {
                 min = a[c][i];
@@ -41,11 +40,11 @@ int main() {
     scanf("%d", &n);
 
     printf("Enter the cost matrix:\n");
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++)
             scanf("%d", &a[i][j]);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
         visited[i] = 0;
 
     printf("Enter the start vertex: ");
@@ -68,5 +67,8 @@ Enter the cost matrix:
 Enter the start vertex: 1
 1       4       3       2       1
 Cost is: 23
-? */
 
+NOTE: the loop counters have to start from 1 and loop termination conditions
+have to be specifically adjusted otherwise the program will not work.
+
+*/
