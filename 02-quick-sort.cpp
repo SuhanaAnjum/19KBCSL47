@@ -5,10 +5,11 @@
 int part(int a[], int low, int high) {
     int i = low + 1, j = high;
 
-    while(i <= j) {
-        while(a[i] < a[low]) i++;
-        while(a[j] > a[low]) j--;
-        if(i < j) {
+    // a[low] is pivot elem
+    while (i <= j) {
+        while (a[i] < a[low]) i++;
+        while (a[j] > a[low]) j--;
+        if (i < j) {
             int temp = a[i];
             a[i] = a[j];
             a[j] = temp;
