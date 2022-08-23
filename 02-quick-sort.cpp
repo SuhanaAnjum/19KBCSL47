@@ -22,7 +22,7 @@ int part(int a[], int low, int high) {
 }
 
 void quick(int a[], int low, int high) {
-    if(low < high) {
+    if (low < high) {
         int j = part(a, low, high);
         quick(a, low, j - 1);
         quick(a, j + 1, high);
@@ -47,7 +47,7 @@ int main() {
     quick(a, 0, n - 1);
     end = clock();
 
-    cout << "\nThe sorted array is:\n" << endl;
+    cout << "\nThe sorted array is:\n";
     for (int i = 0; i < n; i++)
         cout << a[i] << "\t";
 
