@@ -5,7 +5,7 @@
 int a[30], count = 0;
 
 int place(int pos) {
-    for (int i = 0; i < pos; i++)
+    for (int i = 1; i < pos; i++)
         if(a[i] == a[pos] || (abs(a[i] - a[pos]) == abs(i - pos)))
             return 0;
     return 1;
@@ -13,8 +13,8 @@ int place(int pos) {
 
 void print_sol(int n) {
     printf("Solution #%d\n", ++count);
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
             if(a[i] == j) printf("Q\t");
             else printf("*\t");
         }
@@ -27,7 +27,8 @@ void queen(int n) {
     a[k] = 0;
     while(k != 0) {
         a[k]++;
-        while(a[k] <= n && !place(k)) a[k]++;
+        while(a[k] <= n && !place(k))
+            a[k]++;
         if(a[k] <= n)
             if(k == n) print_sol(n);
             else a[++k] = 0;
@@ -60,5 +61,7 @@ Solution #2
 Q       *       *       *
 *       *       *       Q
 *       Q       *       *
-? */
 
+NOTE: loop counters have to specifically start with 1 otherwise
+the output is just not right, 
+*/
