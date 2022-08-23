@@ -16,7 +16,7 @@ void transitiveClosure(int adjmat[MAX][MAX], int t[MAX][MAX], int n) {
 }
 
 void main() {
-    int adjmat[MAX][MAX], n, tr[MAX][MAX];
+    int n, adjmat[MAX][MAX], tr[MAX][MAX];
     clrscr();
 
     printf("Warshalls algorithm to find transitive closure of a matrix.\n");
@@ -39,3 +39,18 @@ void main() {
 
     getch();
 }
+
+/* OUTPUT:
+Warshalls algorithm to find transitive closure of a matrix.
+Enter number of vertices: 4
+Enter the matrix:
+0 1 0 0 
+0 0 0 1
+0 0 0 0
+1 0 1 0
+Transitive closure of matrix is:
+1 1 1 1
+1 1 1 1 
+0 0 0 0
+1 1 1 1
+*/
