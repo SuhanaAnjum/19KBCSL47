@@ -10,9 +10,9 @@ int knapsack(int W, int wt[], int val[], int n) {
 
     for (int i = 0; i <= n; i++) {
         for (int wt = 0; wt <= W; wt++) {
-            if(i == 0 || wt == 0) k[i][wt] = 0;
-            else if(w[i-1] <= wt)
-                k[i][wt] = max(v[i-1]+k[i-1][wt-w[i-1]], k[i-1][wt]);
+            if (i == 0 || wt == 0) k[i][wt] = 0;
+            else if (w[i-1] <= wt)
+                k[i][wt] = max(v[i-1] + k[i-1][wt-w[i-1]], k[i-1][wt]);
             else k[i][wt] = k[i-1][wt];
         }
     }
@@ -21,9 +21,9 @@ int knapsack(int W, int wt[], int val[], int n) {
 
 /* recursive approach, better in my opinion
 int knapsack(int W, int wt[], int val[], int n) {
-    if(n == 0 || W == 0)
+    if (n == 0 || W == 0)
         return 0;
-    if(wt[n - 1] > W)
+    if (wt[n - 1] > W)
         return knapsack(W, wt, val, n - 1);
     else
         return max (
@@ -41,7 +41,7 @@ int main() {
     cin >> n;
 
     for (int i = 0; i < n; i++) {
-        cout << "Enter profit and weight if item " << i + 1 << ": ";
+        cout << "Enter profit and weight of item " << i + 1 << ": ";
         cin >> val[i] >> wt[i];
     }
 
@@ -55,10 +55,10 @@ int main() {
 
 /* OUTPUT:
 Enter the number of items in knapsack: 4
-Enter profit and weight if item 1: 1 2
-Enter profit and weight if item 2: 2 3
-Enter profit and weight if item 3: 5 4
-Enter profit and weight if item 4: 6 5
+Enter profit and weight of item 1: 1 2
+Enter profit and weight of item 2: 2 3
+Enter profit and weight of item 3: 5 4
+Enter profit and weight of item 4: 6 5
 Enter the capacity of knapsack: 8
 Maximum profit: 8
 */
