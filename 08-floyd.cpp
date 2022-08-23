@@ -2,7 +2,6 @@
 #include <conio.h>
 
 #define NODE 5
-#define INFI 999
 
 void floyd(int cost[NODE][NODE], int node) {
     for (int k = 0; k < node; k++)
