@@ -21,6 +21,7 @@ void floyd(int cost[NODE][NODE], int node) {
 void main() {
     int node, costMat[NODE][NODE];
     clrscr();
+
     cout << "Enter number of vertices: ";
     cin >> node;
     

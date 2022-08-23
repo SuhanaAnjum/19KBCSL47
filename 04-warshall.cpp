@@ -3,39 +3,34 @@
 
 #define MAX 5
 
-void transitiveClosure(int adjmat[MAX][MAX], int t[MAX][MAX], int n) {
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            if(adjmat[i][j] == 1) t[i][j] = 1;
-            else t[i][j] = 0;
+void transitiveClosure(int adjmat[MAX][MAX], int node) {
+    for (int k = 0; k < node; k++)
+        for (int i = 0; i < node; i++)
+            for (int j = 0; j < node; j++)
+                adjmat[i][j] = adjmat[i][j] || (adjmat[i][k] && adjmat[k][j]);
 
-    for (int k = 0; k < n; k++)
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                t[i][j] = t[i][j] || (t[i][k] && t[k][j]);
+    printf("Transitive closure of matrix is: \n");
+    for (int i = 0; i < node; i++) {
+        for (int j = 0; j < node; j++)
+            printf("%d", adjmat[i][j]);
+        printf("\n");
+    }
 }
 
 void main() {
-    int n, adjmat[MAX][MAX], tr[MAX][MAX];
+    int node, adjmat[MAX][MAX];
     clrscr();
 
     printf("Warshalls algorithm to find transitive closure of a matrix.\n");
     printf("Enter number of vertices: ");
-    scanf("%d", &n);
+    scanf("%d", &node);
 
     printf("Enter the matrix:\n");
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
+    for (int i = 0; i < node; i++)
+        for (int j = 0; j < node; j++)
             scanf("%d", &adjmat[i][j]);
 
-    transitiveClosure(adjmat, tr, n);
-
-    printf("Transitive closure of matrix is: \n");
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++)
-            printf("%d", tr[i][j]);
-        printf("\n");
-    }
+    transitiveClosure(adjmat, node);
 
     getch();
 }
