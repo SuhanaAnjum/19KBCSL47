@@ -19,7 +19,7 @@ int knapsack(int W, int wt[], int val[], int n) {
     return k[n][W];
 }
 
-/*
+/* recursive approach, better in my opinion
 int knapsack(int W, int wt[], int val[], int n) {
     if(n == 0 || W == 0)
         return 0;
@@ -52,3 +52,13 @@ int main() {
 
     getch();
 }
+
+/* OUTPUT:
+Enter the number of items in knapsack: 4
+Enter profit and weight if item 1: 1 2
+Enter profit and weight if item 2: 2 3
+Enter profit and weight if item 3: 5 4
+Enter profit and weight if item 4: 6 5
+Enter the capacity of knapsack: 8
+Maximum profit: 8
+*/
