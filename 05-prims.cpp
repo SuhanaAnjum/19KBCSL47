@@ -56,6 +56,7 @@ void Prims::primsAlgo() {
                             y = j;
                         }
 
+        // x = i is the currently selected one, hence next select j
         selected[y] = true;
         edgeCost = graph[x][y];
         totalCost += edgeCost;
