@@ -13,20 +13,20 @@ void find_indegree() {
 }
 
 void topology() {
-    int s[10], sTop = -1, u, t[10], tTop = 0;
+    int s[10], sTop = -1, t[10], tTop = 0;
     find_indegree();
 
     for (int i = 0; i < n; i++)
-        if(indegree[i] == 0)
+        if (indegree[i] == 0)
             s[++sTop] = i;
     
-    while(sTop != -1){
-        u = s[sTop--];
+    while(sTop != -1) {
+        int u = s[sTop--];
         t[tTop++] = u;
         for (int i = 0; i < n; i++)
-            if(a[u][i] == 1){
+            if (a[u][i] == 1) {
                 indegree[i]--;
-                if(indegree[i] == 0)
+                if (indegree[i] == 0)
                     s[++sTop] = i;
             }
     }
@@ -52,3 +52,15 @@ void main() {
 
     getch();
 }
+
+/* OUTPUT:
+Enter number of vertices of DAG: 5
+Enter the adjacency matrix:
+0 1 0 1 0
+0 0 1 1 0
+0 0 0 0 0
+0 0 1 0 1
+0 0 0 0 0
+The topological sorting is:
+0 1 3 4 2
+*/
