@@ -7,33 +7,36 @@ void find_indegree() {
     for (int i = 0; i < n; i++) {
         int sum = 0;
         for (int j = 0; j < n; j++)
+            // a[j][i] gives the incomming edges
+            // a[i][j] gives the outgoing edges
             sum += a[j][i];
         indegree[i] = sum;
     }
 }
 
 void topology() {
-    int s[10], sTop = -1, t[10], tTop = 0;
+    int stack[10], top = -1, visited[10], visitedTop = 0;
     find_indegree();
 
     for (int i = 0; i < n; i++)
         if (indegree[i] == 0)
-            s[++sTop] = i;
+            stack[++top] = i;
     
-    while(sTop != -1) {
-        int u = s[sTop--];
-        t[tTop++] = u;
+    while (top != -1) {
+        int u = stack[top--];
+        visited[visitedTop++] = u;
         for (int i = 0; i < n; i++)
             if (a[u][i] == 1) {
+                // the node that is visited remove its outgoing edges
                 indegree[i]--;
                 if (indegree[i] == 0)
-                    s[++sTop] = i;
+                    stack[++top] = i;
             }
     }
 
     printf("The topological sorting is:\n");
     for (int i = 0; i < n; i++)
-        printf("%d\t", t[i]);
+        printf("%d\t", visited[i]);
     printf("\n");
 }
 
